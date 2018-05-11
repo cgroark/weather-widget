@@ -1,10 +1,14 @@
 :root{
-  --color-grey: lightgrey;
+  --color-grey: rgb(153,153,153);
+  --color-darkgrey: rgb(100,100,100);
+  --color-darkergrey: rgb(50,50,50);
   --color-blue: rgba(24,77,160,.4);
+  --font: 'Raleway', sans-serif;
 }
 body{
   background-image: url('./img/clouds.jpg');
   background-size: 100%;
+  font-family: var(--font);
 }
 .App {
   text-align: center;
@@ -28,9 +32,15 @@ body{
 input{
   background-color: inherit;
   border: none;
-  color: white;
-  font-size: 22px;
+  color: var(--color-darkgrey);
+  font-size: 31px;
   margin-top: 5px;
+  font-family: var(--font);
+}
+::placeholder{
+  color: var(--color-darkgrey);
+  font-size: 24px;
+  font-family: var(--font);
 }
 hr{
   width: 80%;
@@ -60,6 +70,7 @@ hr{
 }
 #current-temp{
   font-size: 135px;
+  bottom: 10px;
   font-weight: 100;
   left: 21%;
   position: relative;
@@ -70,20 +81,29 @@ hr{
   display: flex;
   left: 52%;
   font-size: 32px;
-  margin-top: -127px;
+  margin-top: -129px;
 }
 #current-desc{
   position: relative;
   display: flex;
-  left: 53%;
+  left: 56%;
   margin-bottom: -15px;
   font-size: 18px;
 }
 #humidity{
   position: relative;
   display: flex;
-  left: 53%;
+  left: 56%;
   font-size: 18px;
+}
+#mag-icon {
+  color: var(--color-darkergrey);
+  font-size: 36px;
+  display: inline;
+  margin-right: 25px;
+}
+.icon{
+  margin-bottom: -27px;
 }
 .forecast{
   display: flex;
@@ -95,5 +115,5 @@ hr{
   border-bottom-right-radius: 10px;
 }
 .forecast-each{
-  width: 92px;
+  width: 114px;
 }

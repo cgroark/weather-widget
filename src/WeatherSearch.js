@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Results from './Results';
+import FaSearch from 'react-icons/lib/fa/search';
 let key = process.env.REACT_APP_API;
 
 class WeatherSearch extends Component {
@@ -53,7 +54,8 @@ class WeatherSearch extends Component {
 		return(
 			<div className='weather-div'>
 				<form type='input'  onSubmit={this.handleSubmit}>
-					<input placeholder='enter City and State' onChange={this.handleChange}></input>
+					<p id='mag-icon'><FaSearch /></p>
+					<input placeholder='City, State' onChange={this.handleChange}></input>
 				</form>
 				<hr></hr>
 				{forecast &&
