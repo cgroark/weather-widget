@@ -1,0 +1,99 @@
+:root{
+  --color-grey: lightgrey;
+  --color-blue: rgba(24,77,160,.4);
+}
+body{
+  background-image: url('./img/clouds.jpg');
+  background-size: 100%;
+}
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+input{
+  background-color: inherit;
+  border: none;
+  color: white;
+  font-size: 22px;
+  margin-top: 5px;
+}
+hr{
+  width: 80%;
+  border-color: var(--color-grey);
+}
+.forecast-date{
+  font-size: 16px;
+  color: var(--color-grey);
+}
+.forecast-high{
+  font-size: 18px;
+  font-weight:900;
+}
+.forecast-low{
+  font-size: 16px;
+}
+.weather-div{
+  margin-top: 12%;
+  width: 500px;
+  background-color: var(--color-blue);
+  display: inline-block;
+  border-radius: 10px;
+}
+.current-weather{
+  height: 150px;
+  color: white;
+}
+#current-temp{
+  font-size: 135px;
+  font-weight: 100;
+  left: 21%;
+  position: relative;
+  display: flex;
+}
+#temp-f{
+  position: relative;
+  display: flex;
+  left: 52%;
+  font-size: 32px;
+  margin-top: -127px;
+}
+#current-desc{
+  position: relative;
+  display: flex;
+  left: 53%;
+  margin-bottom: -15px;
+  font-size: 18px;
+}
+#humidity{
+  position: relative;
+  display: flex;
+  left: 53%;
+  font-size: 18px;
+}
+.forecast{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+  background-color: white;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.forecast-each{
+  width: 92px;
+}
