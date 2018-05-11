@@ -3,7 +3,7 @@
   --color-darkgrey: rgb(100,100,100);
   --color-darkergrey: rgb(50,50,50);
   --color-blue: rgba(24,77,160,.4);
-  --font: 'Raleway', sans-serif;
+  --font: 'Titillium Web', sans-serif;
 }
 body{
   background-image: url('./img/clouds.jpg');
@@ -37,6 +37,9 @@ input{
   margin-top: 5px;
   font-family: var(--font);
 }
+input:focus{
+    outline: none;
+}
 ::placeholder{
   color: var(--color-darkgrey);
   font-size: 24px;
@@ -44,10 +47,11 @@ input{
 }
 hr{
   width: 80%;
+  display: inline-block;
   border-color: var(--color-grey);
 }
 .forecast-date{
-  font-size: 16px;
+  font-size: 23px;
   color: var(--color-grey);
 }
 .forecast-high{
@@ -58,7 +62,7 @@ hr{
   font-size: 16px;
 }
 .weather-div{
-  margin-top: 12%;
+  margin-top: 8%;
   width: 500px;
   background-color: var(--color-blue);
   display: inline-block;
@@ -68,9 +72,30 @@ hr{
   height: 150px;
   color: white;
 }
+#delete{
+  z-index: 99;
+  color: var(--color-darkergrey);
+  background-color: transparent;
+  border: none;
+  position: relative;
+  top: -31px;
+  right: -400px;
+  font-size: 20px;
+}
+#mag-icon {
+  color: var(--color-darkergrey);
+  font-size: 20px;
+  display: inline;
+  margin-right: 25px;
+  background-color: inherit;
+  border: none;
+}
+#mag-icon, #delete:hover{
+  cursor: pointer;
+}
 #current-temp{
   font-size: 135px;
-  bottom: 10px;
+  bottom: 54px;
   font-weight: 100;
   left: 21%;
   position: relative;
@@ -81,13 +106,13 @@ hr{
   display: flex;
   left: 52%;
   font-size: 32px;
-  margin-top: -129px;
+  margin-top: -211px;
 }
 #current-desc{
   position: relative;
   display: flex;
   left: 56%;
-  margin-bottom: -15px;
+  margin-bottom: -76px;
   font-size: 18px;
 }
 #humidity{
@@ -96,12 +121,7 @@ hr{
   left: 56%;
   font-size: 18px;
 }
-#mag-icon {
-  color: var(--color-darkergrey);
-  font-size: 36px;
-  display: inline;
-  margin-right: 25px;
-}
+
 .icon{
   margin-bottom: -27px;
 }

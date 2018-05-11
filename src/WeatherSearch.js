@@ -9,8 +9,18 @@ class WeatherSearch extends Component {
 		this.state = {
 			city: '',
 			weather: null,
-			forecast: null
+			forecast: null,
+			search: null
 		}
+	}
+
+	handleDelete = (e) => {
+		e.preventDefault()
+		this.setState({
+			forecast: null,
+			city: ''
+		})
+		console.log('delete', this.state.city)
 	}
 
 	handleChange = (e) => {
@@ -31,7 +41,8 @@ class WeatherSearch extends Component {
 			.then(json => {
 				console.log('url', weatherUrl)
 				this.setState({
-					weather: json
+					weather: json,
+					search: 'yes'
 				})
 				console.log('state', this.state.weather)
 			})
@@ -42,7 +53,7 @@ class WeatherSearch extends Component {
 			.then(json => {
 				console.log('forecast', forecastUrl)
 				this.setState({
-					forecast: json
+					forecast: json,
 				})
 				console.log('state forecast', this.state.forecast)
 			})
@@ -51,14 +62,19 @@ class WeatherSearch extends Component {
 
 	render() {
 		let forecast = this.state.forecast;
+		let search = this.state.search;
 		return(
 			<div className='weather-div'>
 				<form type='input'  onSubmit={this.handleSubmit}>
-					<p id='mag-icon'><FaSearch /></p>
+					<button type='submit' id='mag-icon'><FaSearch /></button>
 					<input placeholder='City, State' onChange={this.handleChange}></input>
+					
 				</form>
+				{forecast && 
+					<button id='delete' onClick={this.handleDelete}>X</button>
+					}
 				<hr></hr>
-				{forecast &&
+				{forecast && 
 				<Results data={this.state.weather} city={this.state.city} forecast={this.state.forecast}/>
 				}
 			</div>
