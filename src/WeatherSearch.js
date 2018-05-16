@@ -8,19 +8,19 @@ class WeatherSearch extends Component {
 		super(props)
 		this.state = {
 			city: '',
-			weather: null,
-			forecast: null,
-			search: null
+			weather: {},
+			forecast: {},
+			search: ''
 		}
 	}
 
 	handleDelete = (e) => {
 		e.preventDefault()
 		this.setState({
-			forecast: null,
-			city: ''
+			weather: {},
+			forecast: {},
+			city: '',
 		})
-		console.log('delete', this.state.city)
 	}
 
 	handleChange = (e) => {
@@ -30,7 +30,6 @@ class WeatherSearch extends Component {
 	}
 
 	handleSubmit = (e) => {
-		console.log('key', key)
 		e.preventDefault();
 		let weatherUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + this.state.city + ',US&APPID=' + key;
 		let forecastUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=' + this.state.city + ',US&APPID=' + key;
@@ -39,42 +38,45 @@ class WeatherSearch extends Component {
 				return response.json()
 			})
 			.then(json => {
-				console.log('url', weatherUrl)
 				this.setState({
 					weather: json,
 					search: 'yes'
 				})
-				console.log('state', this.state.weather)
+				console.log('weatherasdasd', this.state.forecast, this.state.search, this.state.forecast.cnt)
 			})
+
 		fetch(forecastUrl)
 			.then(response => {
 				return response.json()
 			})
 			.then(json => {
-				console.log('forecast', forecastUrl)
 				this.setState({
-					forecast: json,
+					forecast: json
 				})
-				console.log('state forecast', this.state.forecast)
+			console.log('aforecast', this.state.forecast, this.state.search, this.state.forecast.cnt)
 			})
 	}
 
 
 	render() {
+		let weather = this.state.weather;
 		let forecast = this.state.forecast;
-		let search = this.state.search;
+		let search = this.state.search;		
 		return(
 			<div className='weather-div'>
 				<form type='input'  onSubmit={this.handleSubmit}>
 					<button type='submit' id='mag-icon'><FaSearch /></button>
-					<input placeholder='City, State' onChange={this.handleChange}></input>
+					<input placeholder='City, State' value={this.state.city} onChange={this.handleChange}></input>
 					
 				</form>
 				{forecast && 
 					<button id='delete' onClick={this.handleDelete}>X</button>
 					}
 				<hr></hr>
-				{forecast && 
+				{search && weather.cod === '404' &&
+					<h3>No matching city found</h3>
+				}
+				{forecast.cnt > 0 &&
 				<Results data={this.state.weather} city={this.state.city} forecast={this.state.forecast}/>
 				}
 			</div>

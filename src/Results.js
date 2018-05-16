@@ -5,10 +5,7 @@ class Forecast extends Component {
 		let fahrenheitMax = Math.round(this.props.max * (9/5) -459.67);
 		let fahrenheitMin = Math.round(this.props.min * (9/5) -459.67);
 		let image = 'http://openweathermap.org/img/w/' + this.props.icon + '.png';
-		console.log('string date', this.props.dt)
-
 		let date = this.props.dt.split('').slice(5,10).join('')
-		console.log('part date', date)
 		return(
 			<div className='forecast-each'>
 				<h1 className='forecast-date'>{date}</h1>
@@ -27,7 +24,6 @@ class Results extends Component{
 		const fiveDay = this.props.forecast.list.filter(item => {
     		return item.dt_txt[12] === '2' || item.dt_txt[11] === '2';
   		})
-  		console.log('fiiive',fiveDay)
   		const forecastData = []
   		for(var i=0; i < fiveDay.length-1; i++){
   			if(fiveDay[i].dt_txt[12] === '2'){
