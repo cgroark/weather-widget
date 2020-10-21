@@ -10,6 +10,7 @@ body{
   background-size: 100%;
   font-family: var(--font);
   text-align: center;
+  padding: 0 20px;
 }
 
 h3{
@@ -21,8 +22,9 @@ input{
   border: none;
   color: var(--color-darkgrey);
   font-size: 31px;
-  margin-top: 5px;
+  margin: 10px 0 25px 0;
   font-family: var(--font);
+  border-bottom: 2px solid var(--color-darkgrey);
 }
 input:focus{
     outline: none;
@@ -50,14 +52,19 @@ hr{
 }
 .weather-div{
   margin-top: 8%;
-  width: 500px;
+  width: 100%;
+  max-width: 500px;
   background-color: var(--color-blue);
   display: inline-block;
-  border-radius: 10px;
+  min-height: 119px;
 }
 .current-weather{
-  height: 150px;
+  height: 195px;
   color: white;
+}
+#city{
+  margin: -20px 0 10px 0;
+  font-size:28px;
 }
 #delete{
   z-index: 99;
@@ -65,9 +72,10 @@ hr{
   background-color: transparent;
   border: none;
   position: relative;
-  top: -31px;
-  right: -400px;
-  font-size: 20px;
+  top: -60px;
+  right: -210px;
+  font-size: 26px;
+  font-weight: 700;
 }
 #mag-icon {
   color: var(--color-darkergrey);
@@ -119,9 +127,71 @@ hr{
   justify-content: center;
   padding: 0;
   background-color: white;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
 }
 .forecast-each{
-  width: 20%;
+  border-right: 0.5px dashed var(--color-darkgrey);
+  width: 19.5%;
+}
+.forecast-each:last-of-type{
+  border-right: none;
+}
+
+@media only screen and (max-width: 520px) {
+  #current-temp{
+    font-size: 95px;
+    bottom: 30px;
+    left: 15%;
+  }
+  #temp-f {
+    margin-top: -148px;
+  }
+  #temp-f, #humidity,#current-desc  {
+    left: 48%;
+  }
+  #delete{
+    right: -150px;
+  }
+  #mag-icon {
+    margin-right: 0px;
+  }
+  ::placeholder{
+    font-size: 20px;
+  }
+  input{
+    width: 70%;
+    padding: 0 20px;
+  }
+  .forecast-date {
+    font-size: 20px;
+  }
+  .current-weather{
+    height: 205px;
+    color: white;
+  }
+  #city{
+    margin: -20px 0 10px 0;
+    font-size:22px;
+  }
+}
+@media only screen and (max-width: 375px) {
+  #current-temp{
+    bottom: 20px;
+    left: 5%;
+  }
+  #temp-f {
+    margin-top: -134px;
+  }
+  #temp-f, #humidity,#current-desc  {
+    left: 44%;
+  }
+  #delete{
+    right: -120px;
+  }
+  .forecast-date {
+    font-size: 18px;
+  }
+  .icon {
+    margin-bottom: -20px;
+    height: 50px;
+  }
 }

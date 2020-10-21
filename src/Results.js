@@ -9,7 +9,7 @@ class Forecast extends Component {
 		return(
 			<div className='forecast-each'>
 				<h1 className='forecast-date'>{date}</h1>
-				<img className='icon' src={image} />
+				<img className='icon' src={image} alt="weather"/>
 				<p className='forecast-high'>{fahrenheitMax}<sup> o </sup> F</p>
 				<p className='forecast-low'>{fahrenheitMin}<sup> o </sup> F</p>
 				
@@ -38,13 +38,16 @@ class Results extends Component{
   		console.log('forecastData',forecastData)
   		
   		const forecast = forecastData.map(each => {
-			return <Forecast dt={each.date} min={each.min} max={each.max} icon={each.icon}/>
+			return <Forecast key={each.date} dt={each.date} min={each.min} max={each.max} icon={each.icon} />
 		})
 		let currentF = Math.round(current.main.temp * (9/5) -459.67);
+		let currentCity = this.props.forecast.city.name;
 		return(
 			<div>
 				<div className='current-weather'>
-					<span id='current-temp'>{currentF}</span><span id="temp-f"><sup>o </sup>F</span>
+					<p id="city">Current weather in {currentCity}</p>
+					<span id='current-temp'>{currentF}</span>
+					<span id="temp-f"><sup>o </sup>F</span>
 					<p id='current-desc'>{current.weather[0].description}</p>
 					<p id='humidity'>{current.main.humidity}% Humidity</p>
 				</div>
